@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= subreddit.name %></title>
+</head>
+<body>
+    <h1><%= subreddit.name %> page working</h1>
+    <h2><%= subreddit.description %></h2>
+    <h3><%= subreddit.subscribers %></h3>
+    <ul>
+        <% for(let i =0; i < subreddit.posts.length; i++){ %>
+        <li>
+            <h3><%= subreddit.posts[i].title %></h3>
+            <p><%= subreddit.posts[i].author %></p>
+            <%
+            let image = subreddit.posts[i].img;
+            if(image){ 
+            %>
+                <img src="<%= subreddit.posts[i].img %>" alt="">
+            <% }else{ %>
+                <p>image does not exist in this subreddit</p>
+            <% } %>
+        </li>
+        <% } %>
+    </ul>
+    
+</body>
+</html>
